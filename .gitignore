@@ -15,6 +15,7 @@ https://stackoverflow.com/q/50061003/304151
 .*_history
 .lesshst
 .viminfo # This has been changed in .vimrc to .vim_history
+.dbshell # This is the history file for MongoDB and cannot be disabled or changed
 
 # This stores the HSTS history for Wget and it doesn't seem to be disableable.
 # https://stackoverflow.com/q/47548271/304151
