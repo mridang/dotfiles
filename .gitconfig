@@ -1,23 +1,31 @@
 [user]
 	name = Mridang Agarwalla
 	email = mridang@nosto.com
+
 [core]
 	excludesfile = /Users/mridang/.gitignore_global
 	editor = atom --wait
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [push]
 	default = current
+
 [commit]
 	template = /Users/mridang/.stCommitMsg
+
 [diff]
 	tool = icdiff
+
 [icdiff]
 	options = --highlight --line-numbers
+
 [color]
 	ui = always
 	branch = always
