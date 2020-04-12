@@ -1,0 +1,11 @@
+alias ls='gls --color=auto -lah'                                        #Use the GNU ls command from the coreutils
+
+alias ll="exa --long --git --group --links --extended --colour-scale"   #Replace the ll command with the colured k
+
+alias "git diff"="git icdiff"                                           #Replace the git diff with the two pane diff
+
+alias micro='micro -statusline off'                                     #Remove the bottom status line for more room
+
+alias tree='exa --tree --level=2 --long'                                #Use Exa to display a nice detailed colured tree
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
