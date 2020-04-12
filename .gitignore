@@ -1,0 +1,8 @@
+# This file stores the information for Google's Clasp CLI
+# https://github.com/google/clasp
+.clasprc.json
+
+# This file stores the default text encoding and preferred language for a user.
+# I think this should be set using the CLI if needed
+https://superuser.com/q/82123/32623
+.CFUserTextEncoding
