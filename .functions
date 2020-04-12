@@ -1,0 +1,3 @@
+cat() {
+    bat --style=numbers --paging=never "$1"
+}
