@@ -6,3 +6,7 @@
 # I think this should be set using the CLI if needed
 https://superuser.com/q/82123/32623
 .CFUserTextEncoding
+
+#This file stores the auth token for the Android studio emulator.
+https://stackoverflow.com/q/50061003/304151
+.emulator_console_auth_token
