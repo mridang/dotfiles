@@ -11,7 +11,7 @@ tap "moncho/dry"
 tap "ringohub/redis-cli"
 brew "ack"
 brew "ant"
-brew "antigen"
+
 brew "apache-spark"
 brew "readline"
 brew "autoconf"

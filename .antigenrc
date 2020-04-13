@@ -1,11 +1,25 @@
+# In order for this file to be loaded, you must load this via your profile file
+# using antigen init $HOME/.antigenrc
+
 antigen use oh-my-zsh
+
+if [ "$OSTYPE"="darwin15.0" ]; then
+  antigen bundle osx
+fi
+
 antigen bundle command-not-found
 antigen bundle colored-man-page
 antigen bundle extract
 
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle thefuck
+antigen bundle direnv
+antigen bundle fzf
+antigen bundle iterm2
 antigen bundle alexrochas/zsh-extract
 antigen bundle rupa/z
 antigen bundle joel-porquet/zsh-dircolors-solarized.git
 antigen theme bhilburn/powerlevel9k powerlevel9k
+
 antigen apply
