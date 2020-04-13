@@ -1,3 +1,5 @@
+export ZSH=~/.oh-my-zsh
+
 # Let's use Nano as the default editor. I'm not very good with VIM.
 export EDITOR="nano"
 
@@ -10,11 +12,18 @@ export LANG="en_US"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# I don't want babel cluttering up my home directory with the babel cache
+# https://stackoverflow.com/questions/32757306
+export BABEL_CACHE_PATH=~/.babel
+
+# Disable the Mac coloured listing so that instead of the LSCOLOURS, the commands
+# (including tree) use the LS_COLOURS variable
+# https://unix.stackexchange.com/q/2897/56262
+unset LSCOLORS
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
+
 # here's LS_COLORS
 # https://github.com/gibbling/dircolors
 command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
 eval "$(gdircolors -b ~/.dircolors)"
-
-# I don't want babel cluttering up my home directory with the babel cache
-# https://stackoverflow.com/questions/32757306
-BABEL_CACHE_PATH=~/.babel

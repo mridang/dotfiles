@@ -17,9 +17,6 @@
 [push]
 	default = current
 
-[commit]
-	template = /Users/mridang/.stCommitMsg
-
 [diff]
 	tool = icdiff
 
