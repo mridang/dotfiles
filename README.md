@@ -17,3 +17,5 @@ Install everything from the Brewfile by running `brew bundle`
 The font I'm using is the Powerline pactched-fonts.
 
 https://github.com/powerline/fonts
+
+Install everything from Powerline by running `~/.powerline/install.sh`
