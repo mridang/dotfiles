@@ -10,3 +10,10 @@ All packages that have been manually installed have been listed by running
 https://apple.stackexchange.com/q/101090/370956
 
 Install everything from the Brewfile by running `brew bundle`
+
+
+## Fonts
+
+The font I'm using is the Powerline pactched-fonts.
+
+https://github.com/powerline/fonts
