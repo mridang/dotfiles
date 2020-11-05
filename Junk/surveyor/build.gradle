@@ -1,0 +1,36 @@
+
+
+plugins {
+    // Apply the scala plugin to add support for Scala
+    id 'scala'
+}
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+
+    // Use Scalatest for testing our library
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.scalatest:scalatest_2.12:3.0.8'
+
+    // Need scala-xml at test runtime
+    testRuntimeOnly 'org.scala-lang.modules:scala-xml_2.12:1.2.0'
+
+    compile 'org.scala-lang:scala-library:2.12.8'
+    compile 'com.fasterxml.jackson.module:jackson-module-jsonSchema:2.11.3'
+    compile 'com.fasterxml.jackson.module:jackson-module-scala_2.12:2.12.0-rc1'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
