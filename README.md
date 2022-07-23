@@ -2,6 +2,13 @@
 My personal dotfies. Feel free to for but use at your own risk.
 
 
+## Install Homebrew
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+
 ## Brew Packages
 
 All packages that have been manually installed have been listed by running
