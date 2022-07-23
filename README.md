@@ -6,6 +6,8 @@ My personal dotfies. Feel free to for but use at your own risk.
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/mridang/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 
