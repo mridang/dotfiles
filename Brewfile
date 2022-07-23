@@ -21,7 +21,7 @@ brew "cloc"
 brew "cmake"
 brew "composer"
 brew "coreutils"
-brew "curl", args: ["with-nghttp2"]
+brew "curl"
 brew "direnv"
 brew "diskus"
 brew "docker-credential-helper-ecr"
@@ -29,15 +29,15 @@ brew "exa"
 brew "fd"
 brew "gcc"
 brew "fftw"
-brew "findutils", args: ["with-default-names"]
+brew "findutils"
 brew "fzf"
 brew "gawk"
 brew "giflib"
 brew "git"
 brew "gnu-getopt"
-brew "gnu-indent", args: ["with-default-names"]
-brew "gnu-sed", args: ["with-default-names"]
-brew "gnu-tar", args: ["with-default-names"]
+brew "gnu-indent"
+brew "gnu-sed"
+brew "gnu-tar"
 brew "gnutls"
 brew "go"
 brew "gobject-introspection"
@@ -46,7 +46,7 @@ brew "jasper"
 brew "webp"
 brew "graphicsmagick", args: ["with-little-cms2"]
 brew "grc"
-brew "grep", args: ["with-default-names"]
+brew "grep"
 brew "hexyl"
 brew "httpie"
 brew "icdiff"
