@@ -9,3 +9,6 @@ alias micro='micro -statusline off'                                     #Remove 
 alias tree='exa --tree --level=2 --long'                                #Use Exa to display a nice detailed colured tree
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+#alias python='python3'
+

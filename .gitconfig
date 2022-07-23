@@ -4,11 +4,11 @@
 
 [core]
 	excludesfile = /Users/mridang/.gitignore_global
-	editor = atom --wait
+	editor = micro
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -60,3 +60,5 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[commit]
+	template = /Users/mridang/.stCommitMsg
