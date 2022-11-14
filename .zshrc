@@ -21,11 +21,7 @@ export SDKMAN_DIR="/Users/mridang/.sdkman"
 [[ -s "/Users/mridang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/mridang/.sdkman/bin/sdkman-init.sh"
 
 
-#### FIG ENV VARIABLES ####
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"

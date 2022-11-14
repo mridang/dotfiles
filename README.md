@@ -28,3 +28,12 @@ The font I'm using is the Powerline pactched-fonts.
 https://github.com/powerline/fonts
 
 Install everything from Powerline by running `~/.powerline/install.sh`
+
+
+## Other
+
+#### Adding a submodule
+
+```sh
+git submodule add https://github.com/seebi/dircolors-solarized .dircolors
+```
