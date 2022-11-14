@@ -101,6 +101,12 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 ## Other
 
+##### Update all submodules
+
+```sh
+git submodule update --remote --merge
+```
+
 ### Adding a submodule
 
 ```sh
