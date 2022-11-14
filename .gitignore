@@ -36,15 +36,23 @@ https://stackoverflow.com/q/50061003/304151
 
 
 .sbt
+# Exclude the whole SBT directory but only keep the single configuration
+# file as that contains the credentials for the various repos.
 .ivy2
 .m2
 .sdkman
+
+# Exclude the whole Gradle directory but only keep the single configuration
+# file as that contains the credentials for the various repos.
+.gradle
 
 
 .pyenv
 .python-eggs
 
-
+# Exclude the whole Idea directory otherwise this too will get smlinked
+# to the root home folder
+.idea
 
 
 Junk
