@@ -97,3 +97,12 @@ brew "browsh-org/browsh/browsh"
 brew "moncho/dry/dry"
 cask "corretto"
 cask "ngrok"
+
+
+tap "mongodb/brew"
+brew "mongodb-community-shell"
+brew "mongodb/brew/mongodb-database-tools"
+
+brew "icu4c"
+brew "openssl"
+brew "stow"
