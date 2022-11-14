@@ -1,4 +1,4 @@
-eval "$(brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 # Added by Toolbox App

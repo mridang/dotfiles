@@ -101,6 +101,20 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 ## Other
 
+##### Upgrade Homebrew
+
+```sh
+brew update
+brew upgrade
+brew doctor
+```
+
+##### Update Software
+
+```sh
+softwareupdate --install -a
+```
+
 ### Adding a submodule
 
 ```sh
