@@ -1,3 +1,7 @@
+# If you ever need to debug the scripts, simply enable this flag to print
+# all executing commands to the console.
+# set -x
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.

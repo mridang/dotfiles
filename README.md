@@ -27,8 +27,36 @@ The font I'm using is the Powerline pactched-fonts.
 
 https://github.com/powerline/fonts
 
-Install everything from Powerline by running `~/.powerline/install.sh`
+Install everything from Powerline by running `~/fonts/install.sh`
 
+
+## Link Dotfiles
+
+
+```sh
+stow --simulate --verbose -t ~ .
+```
+
+
+```sh
+stow --stow --verbose -t ~ .
+```
+
+
+
+## Configure Iterm
+
+##### Specify the preferences directory
+
+```sh
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/plist/"
+```
+
+##### Tell iTerm2 to use the custom preferences in the directory
+
+```sh
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+```
 
 ## Other
 
