@@ -5,13 +5,13 @@
         "revision": "f40fefeb62ff67847374d70d4837c7b3c3fc8139"
       },
       "homebrew/cask": {
-        "revision": "d8f71fd0b09739e78ad0147546d949eb6be115b7"
+        "revision": "af441bf78f7e09d8c77202d8792f73148441bb9a"
       },
       "homebrew/bundle": {
         "revision": "5216bbdd9d47b1cb01c0d2cb656de32540ada95d"
       },
       "homebrew/core": {
-        "revision": "9f037381477cada2d5baacd4d8da017a1a4fea1f"
+        "revision": "bfafc58ebb4bf952bb3293d68f14e56b8e9810d9"
       },
       "homebrew/services": {
         "revision": "88788e6314506b662f971f43af119c641190a4c8"
@@ -3840,7 +3840,7 @@
         }
       },
       "ngrok": {
-        "version": "3.1.0,7gHuLibjv89,a",
+        "version": "3.1.0,gMHPWQMhW1J,a",
         "options": {
           "full_name": "ngrok"
         }
@@ -3856,6 +3856,14 @@
         "CLT": "13.4.0.0.1.1651278267",
         "Xcode": "13.4.1",
         "macOS": "12.3"
+      },
+      "ventura": {
+        "HOMEBREW_VERSION": "3.6.10-13-gb739106-dirty",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "bfafc58ebb4bf952bb3293d68f14e56b8e9810d9",
+        "CLT": "14.1.0.0.1.1666437224",
+        "Xcode": "11.0",
+        "macOS": "13.0.1"
       }
     }
   }

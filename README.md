@@ -115,6 +115,12 @@ brew doctor
 softwareupdate --install -a
 ```
 
+##### Update all submodules
+
+```sh
+git submodule update --remote --merge
+```
+
 ### Adding a submodule
 
 ```sh
