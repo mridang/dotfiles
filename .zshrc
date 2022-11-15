@@ -12,6 +12,7 @@ unset file;
 
 source $ZSH/oh-my-zsh.sh
 source ${HOME}/antigen/antigen.zsh
+source ${HOME}/dotfiles/iterm/iterm-shell-integration.zsh
 
 antigen init $HOME/.antigenrc
 

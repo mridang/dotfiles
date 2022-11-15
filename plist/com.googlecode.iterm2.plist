@@ -12,6 +12,8 @@
 	<false/>
 	<key>AppleFontSmoothing</key>
 	<integer>1</integer>
+	<key>AutoCommandHistory</key>
+	<true/>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>CheckTestRelease</key>
