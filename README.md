@@ -101,6 +101,15 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 ## Other
 
+##### Customise the icons
+
+In order to customise the icon for a folder - in this case, the source-code folder - the
+following command can be used to update the icon.
+
+```
+fileicon set ~/Nosto ~/dotfiles/icons/github.icns
+```
+
 ##### Upgrade Homebrew
 
 ```sh
