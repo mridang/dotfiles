@@ -108,3 +108,11 @@ brew "openssl"
 brew "stow"
 brew "zoxide"
 brew "fileicon"
+
+brew "ttyd"
+brew "ffmpeg"
+brew "charmbracelet/tap/vhs"
+brew "asciinema"
+
+brew "aws-cdk"
+brew "aws-sam-cli"
