@@ -115,4 +115,6 @@ brew "charmbracelet/tap/vhs"
 brew "asciinema"
 
 brew "aws-cdk"
-brew "aws-sam-cli"
+brew "aws/tap/aws-sam-cli"
+
+brew "fnm"

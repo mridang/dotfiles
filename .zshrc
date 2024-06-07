@@ -30,3 +30,12 @@ export SDKMAN_DIR="/Users/mridang/.sdkman"
 #export PATH="$PYENV_ROOT/bin:$PATH"
 #eval "$(pyenv init --path)"
 #eval "$(pyenv init -)"
+
+eval "$(fnm env --use-on-cd)"
+
+# bun completions
+[ -s "/Users/mridang/.bun/_bun" ] && source "/Users/mridang/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

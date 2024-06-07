@@ -24,7 +24,7 @@
 	options = --highlight --line-numbers
 
 [color]
-	ui = always
+	ui = false
 	branch = always
 	diff = always
 	interactive = always
@@ -64,3 +64,8 @@
 	template = /Users/mridang/.stCommitMsg
 [pull]
 	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
