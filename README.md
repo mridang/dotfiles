@@ -50,7 +50,7 @@ brew bundle
 
 ### Install Fonts
 
-The fonts used the terminal are called Powerline fonts which need to be installed 
+The fonts used the terminal are called Powerline fonts which need to be installed
 separately. The following command will install the fonts automatically.
 
 See https://github.com/powerline/fonts
@@ -78,26 +78,28 @@ stow --simulate --verbose -t ~ .
 stow --stow --verbose -t ~ .
 ```
 
+### Restore application configuration
 
+Most applications seem to keep the configuration in `.plist` files in the
+`$HOME/Library/Preferences/` directory. This directory contains other files
+too e.g. configuration for internal settings.
 
+A selective list of applications have been chosen and their configurations
+have been added to version control. This makes setting a new machine a lot
+easier as we no longer need to configure these applications all over again.
 
-### Configure Iterm
-
-iTerm is the terminal of choice as it is far superior to any other terminal out there.
-In order to configure the terminal to reuse the committed preferences, the following
-commands need to be run.
-
-###### Specify the preferences directory
-
-```sh
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/plist/"
+```shell
+stow --simulate --verbose --target=$HOME/Library/Preferences plist
 ```
 
-###### Use the custom preferences in the directory
+Once you've set up the symlinks, it is recommended to run the following
+command to see what non-system and non-symlinked files exist. This will
+allow you to eyeball which of these should be also be version controlled.
 
-```sh
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+```shell
+find ~/Library/Preferences/ -maxdepth 1 -type f -name "*.plist" ! -name "*com.apple*" -name "*.*.*.plist"
 ```
+
 
 ## Other
 
