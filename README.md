@@ -100,6 +100,11 @@ allow you to eyeball which of these should be also be version controlled.
 find ~/Library/Preferences/ -maxdepth 1 -type f -name "*.plist" ! -name "*com.apple*" -name "*.*.*.plist"
 ```
 
+### Configure Applications
+
+Tailscale
+Docker
+
 
 ## Other
 
