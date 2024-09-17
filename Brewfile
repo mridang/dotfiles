@@ -90,8 +90,6 @@ brew "yarn"
 brew "browsh-org/browsh/browsh"
 brew "moncho/dry/dry"
 cask "corretto"
-cask "ngrok"
-
 
 tap "mongodb/brew"
 brew "mongodb-community-shell"
@@ -125,3 +123,4 @@ cask "rectangle"
 cask "transmission"
 cask "viscosity"
 cask "vlc"
+cask "tailscale"
