@@ -16,26 +16,6 @@ source ${HOME}/dotfiles/iterm/iterm-shell-integration.zsh
 
 antigen init $HOME/.antigenrc
 
-
 DEFAULT_USER="mridang"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv nvm root_indicator background_jobs history time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator background_jobs history time)
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S %d/%m/%Y}"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/mridang/.sdkman"
-[[ -s "/Users/mridang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/mridang/.sdkman/bin/sdkman-init.sh"
-
-
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init --path)"
-#eval "$(pyenv init -)"
-
-eval "$(fnm env --use-on-cd)"
-
-# bun completions
-[ -s "/Users/mridang/.bun/_bun" ] && source "/Users/mridang/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
