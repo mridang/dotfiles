@@ -16,7 +16,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle thefuck
 antigen bundle direnv
 antigen bundle fzf
-antigen bundle iterm2
 antigen bundle alexrochas/zsh-extract
 antigen bundle joel-porquet/zsh-dircolors-solarized.git
 antigen theme romkatv/powerlevel10k
