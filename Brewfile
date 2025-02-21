@@ -103,3 +103,6 @@ cask "transmission"
 cask "viscosity"
 cask "vlc"
 cask "tailscale"
+cask "ghostty"
+
+
