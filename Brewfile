@@ -91,6 +91,8 @@ brew "aws/tap/aws-sam-cli"
 
 brew "fnm"
 
+brew "atuin"
+
 cask "codeedit"
 cask "docker"
 cask "google-chrome"

@@ -18,3 +18,4 @@ antigen init $HOME/.antigenrc
 DEFAULT_USER="mridang"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv root_indicator background_jobs history time)
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S %d/%m/%Y}"
+eval "$(atuin init zsh)"

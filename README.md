@@ -117,6 +117,83 @@ following command can be used to update the icon.
 fileicon set ~/Nosto ~/dotfiles/icons/github.icns
 ```
 
+#### Configure Atuin
+
+[Atuin](https://atuin.sh) is a powerful tool that allows you to sync and manage
+your shell history across devices. It provides a central repository where all
+your shell commands can be stored and accessed, making it easy to sync and
+retrieve your history from any device. With features like automatic syncing and
+the ability to search through your shell history, Atuin helps streamline your
+workflow.
+
+To start using Atuin's sync feature, follow these steps to register and log in.
+
+#### Register Atuin Account
+
+To register for an Atuin account, use the following command. Replace
+`<YOUR_USERNAME>` and `<YOUR_EMAIL>` with your desired username and email
+address:
+
+```bash
+atuin register --username=<YOUR_USERNAME> --email=<YOUR_EMAIL>
+```
+
+This command will create an account on Atuin’s servers, and you'll be able to
+start syncing your shell history.
+
+```
+$ atuin register --username=godmode --email=mridang.agarwalla@gmail.com
+
+Registering for an Atuin Sync account
+Please enter password:
+Registration successful! Please make a note of your key (run 'atuin key') and keep it safe.
+You will need it to log in on other devices, and we cannot help recover it if you lose it.
+```
+
+```
+$ atuin key
+
+slow potato quiz cement faith argue doll appear
+```
+
+#### Log into Atuin
+
+Once you've registered, log in with your username by running:
+
+```bash
+atuin login --username=<USERNAME>
+```
+
+This step authenticates you, linking your local machine to your Atuin account
+and enabling the synchronization of your shell history.
+
+#### Syncing Shell History
+
+Now that you're logged in, you can sync your shell history by using the
+following command:
+
+```bash
+atuin sync
+```
+
+After running the sync command, Atuin will upload your local history to its
+cloud store, and it will indicate how many records are uploaded. For example,
+you may see an output like this:
+
+```bash
+$ atuin sync
+Uploading 1 records to 119527b30a0476e09695470052a2a71d/history
+  [00:00:00] [#################################################################################################################################################################################] 1/1 (0.0s)2/0 up/down to record store
+3 in history index, but 2 in history store
+Running automatic history store init...
+  Import complete                                                                                                                                                                                          Re-running sync due to new records locally
+Uploading 1 records to 019527a30a0476e09695470052a2a71d/history
+  [00:00:00] [#################################################################################################################################################################################] 1/1 (0.0s)2/0 up/down to record store
+Sync complete! 3 items in history database, force: false
+```
+
+---
+
 ##### Upgrade Homebrew
 
 ```sh
