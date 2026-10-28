@@ -1,0 +1,21 @@
+# Homebrew cask names. install-apps resolves each one to the vendor's download.
+# A name may be followed by pkg=<url> where the vendor's PKG is not in Homebrew's data.
+google-chrome pkg=https://dl.google.com/chrome/mac/universal/stable/gcem/GoogleChrome.pkg
+brave-browser pkg=https://referrals.brave.com/latest/Brave-Browser-universal.pkg
+docker-desktop
+tailscale-app
+rectangle
+ghostty
+transmission
+iina
+protonvpn
+little-snitch
+intellij-idea
+goland
+phpstorm
+pycharm
+rider
+rubymine
+rustrover
+webstorm
+dataspell

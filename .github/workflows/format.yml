@@ -1,0 +1,39 @@
+name: Format Code (alejandra, shfmt)
+
+on: push
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  code-formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Runner Common Setup
+        uses: mridang/action-runner-common@v1
+
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install Devbox
+        uses: jetify-com/devbox-install-action@v0.15.0
+        with:
+          enable-cache: true
+
+      - name: Apply formatting
+        run: devbox run format
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Apply alejandra and shfmt formatting
+          commit_options: '--no-verify'
+          repository: .
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          commit_author: GitHub Actions <actions@github.com>

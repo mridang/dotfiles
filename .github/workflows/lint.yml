@@ -1,0 +1,29 @@
+name: Lint Code (statix, deadnix, shellcheck)
+
+on: push
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  code-linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Runner Common Setup
+        uses: mridang/action-runner-common@v1
+
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install Devbox
+        uses: jetify-com/devbox-install-action@v0.15.0
+        with:
+          enable-cache: true
+
+      - name: Run linters
+        run: devbox run lint

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
+  "packages": [
+    "alejandra@latest",
+    "statix@latest",
+    "deadnix@latest",
+    "shellcheck@latest",
+    "shfmt@latest"
+  ],
+  "shell": {
+    "scripts": {
+      "format": [
+        "alejandra .",
+        "shfmt -w -i 2 install.sh install-apps.sh test-vm.sh"
+      ],
+      "format:check": [
+        "alejandra --check .",
+        "shfmt -d -i 2 install.sh install-apps.sh test-vm.sh"
+      ],
+      "lint": [
+        "statix check .",
+        "deadnix --fail .",
+        "shellcheck --severity=warning install.sh test-vm.sh",
+        "shellcheck --shell=bash --severity=warning install-apps.sh"
+      ]
+    }
+  }
+}

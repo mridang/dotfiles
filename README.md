@@ -1,221 +1,84 @@
 # dotfiles
 
-My personal dotfiles. Feel free to for but use at your own risk. In order to begin using
-these dotfiles, you must check out the repository into your home directory.
+My Mac setup, managed with [Nix](https://nixos.org/) and [Home Manager](https://nix-community.github.io/home-manager/). Home Manager installs the packages, links the config files in `configs/` into `$HOME` and sets up the shell. [Devbox](https://www.jetify.com/devbox) provides the global developer tools (gh, Node, and so on) and the per-project toolchains.
+
+## Setting up a new Mac
+
+One command installs and configures everything. It does not sign in to anything:
 
 ```sh
-git clone git@github.com:mridang/dotfiles.git
-cd dotfiles
-git submodule update --init
+curl -fsSL https://raw.githubusercontent.com/mridang/dotfiles/master/install.sh | bash
 ```
 
-
-### Install XCode Tools
-
-The XCode Tools is a dependency for many packages and needs to be installed first. Do
-expect a popup when running this command
+To run it without any prompts, for example on a fresh VM:
 
 ```sh
-sudo xcode-select --install
+curl -fsSL https://raw.githubusercontent.com/mridang/dotfiles/master/install.sh | bash -s -- --yes
 ```
 
+The installer checks for the Xcode command line tools, installs Nix, clones this repository to `~/dotfiles`, installs Home Manager and applies `home.nix`. If the repository is private, the raw URL above does not work without a token. Export `GH_TOKEN` and fetch the script through the GitHub API, or clone the repository first and run `./install.sh` from the checkout. The options are `--yes`, `--dir` and `--repo`.
 
+To do it by hand instead, run `make prepare`, `make install-deps` and `make apply` from a checkout.
 
-### Install Homebrew
+`make test-vm` proves the installer works: it boots a throwaway macOS VM with [Tart](https://tart.run), runs `install.sh --yes` in it over SSH, checks the tools and the shell, and deletes the VM. It needs Apple Silicon and downloads a ~20 GB image into a temporary directory the first time.
 
-Homebrew is the package manager of choice and needs to be installed first.
+## After the install
+
+Nothing secret is stored here, so sign in to each tool once on every new machine:
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/mridang/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-
-
-
-
-### Install Packages
-
-All packages that have been manually installed have been listed by running
- `brew leaves`. I've used `brew bundle dump` to create the `Brewfile`. The following
-command will install all necessary packages.
-
-See https://apple.stackexchange.com/q/101090/370956
-
-```sh
-brew bundle
-```
-
-
-
-### Install Fonts
-
-The fonts used the terminal are called Powerline fonts which need to be installed
-separately. The following command will install the fonts automatically.
-
-See https://github.com/powerline/fonts
-
-```sh
-~/fonts/install.sh
-```
-
-
-
-### Link Dotfiles
-
-Since the dotfiles are in a separate directory, GNU Stow is used to set up all the
-symlinks which prevents cluttering the home directory.
-
-###### See the symlinks that will be set up
-
-```sh
-stow --simulate --verbose -t ~ .
-```
-
-###### Actually set up all the symlinks
-
-```sh
-stow --stow --verbose -t ~ .
-```
-
-### Restore application configuration
-
-Most applications seem to keep the configuration in `.plist` files in the
-`$HOME/Library/Preferences/` directory. This directory contains other files
-too e.g. configuration for internal settings.
-
-A selective list of applications have been chosen and their configurations
-have been added to version control. This makes setting a new machine a lot
-easier as we no longer need to configure these applications all over again.
-
-```shell
-stow --simulate --verbose --target=$HOME/Library/Preferences plist
-```
-
-Once you've set up the symlinks, it is recommended to run the following
-command to see what non-system and non-symlinked files exist. This will
-allow you to eyeball which of these should be also be version controlled.
-
-```shell
-find ~/Library/Preferences/ -maxdepth 1 -type f -name "*.plist" ! -name "*com.apple*" -name "*.*.*.plist"
-```
-
-### Configure Applications
-
-Tailscale
-Docker
-
-
-## Other
-
-##### Customise the icons
-
-In order to customise the icon for a folder - in this case, the source-code folder - the
-following command can be used to update the icon.
-
-```
-fileicon set ~/Nosto ~/dotfiles/icons/github.icns
-```
-
-#### Configure Atuin
-
-[Atuin](https://atuin.sh) is a powerful tool that allows you to sync and manage
-your shell history across devices. It provides a central repository where all
-your shell commands can be stored and accessed, making it easy to sync and
-retrieve your history from any device. With features like automatic syncing and
-the ability to search through your shell history, Atuin helps streamline your
-workflow.
-
-To start using Atuin's sync feature, follow these steps to register and log in.
-
-#### Register Atuin Account
-
-To register for an Atuin account, use the following command. Replace
-`<YOUR_USERNAME>` and `<YOUR_EMAIL>` with your desired username and email
-address:
-
-```bash
-atuin register --username=<YOUR_USERNAME> --email=<YOUR_EMAIL>
-```
-
-This command will create an account on Atuin’s servers, and you'll be able to
-start syncing your shell history.
-
-```
-$ atuin register --username=godmode --email=mridang.agarwalla@gmail.com
-
-Registering for an Atuin Sync account
-Please enter password:
-Registration successful! Please make a note of your key (run 'atuin key') and keep it safe.
-You will need it to log in on other devices, and we cannot help recover it if you lose it.
-```
-
-```
-$ atuin key
-
-slow potato quiz cement faith argue doll appear
-```
-
-#### Log into Atuin
-
-Once you've registered, log in with your username by running:
-
-```bash
+ssh-keygen -t ed25519
+gh auth login
+gcloud auth login
+aws configure sso
+docker login
 atuin login --username=<USERNAME>
 ```
 
-This step authenticates you, linking your local machine to your Atuin account
-and enabling the synchronization of your shell history.
+`~/.npmrc` reads the GitHub Packages token from `gh auth token` (exported as `GITHUB_TOKEN` by the zsh init) and the npm token from `NPM_TOKEN`, which you only need to export when publishing to npmjs.org. The skills repository is cloned to `~/.agents/skills` the first time `make apply` runs with GitHub access, so run `make apply` again after signing in.
 
-#### Syncing Shell History
+## How it works
 
-Now that you're logged in, you can sync your shell history by using the
-following command:
+`home.nix` declares the packages, the shell (zsh, bash, starship, atuin, fzf, zoxide, direnv), a weekly Nix garbage collection and the session variables. `xdg.enable` is on, so tools that honour the XDG directories use `~/.config`, `~/.cache`, `~/.local/share` and `~/.local/state`. Everything inside `configs/` is linked into `$HOME`. Devbox's global package list is `devbox-global.json`, linked to `~/.local/share/devbox/global/default/devbox.json`.
 
-```bash
-atuin sync
-```
+Run `make apply` after changing `home.nix`, and `devbox global update` to update the global Devbox tools. If a new terminal is broken after applying, delete the compiled zsh cache with `rm ~/.zshrc.zwc`.
 
-After running the sync command, Atuin will upload your local history to its
-cloud store, and it will indicate how many records are uploaded. For example,
-you may see an output like this:
+## What is not managed
 
-```bash
-$ atuin sync
-Uploading 1 records to 119527b30a0476e09695470052a2a71d/history
-  [00:00:00] [#################################################################################################################################################################################] 1/1 (0.0s)2/0 up/down to record store
-3 in history index, but 2 in history store
-Running automatic history store init...
-  Import complete                                                                                                                                                                                          Re-running sync due to new records locally
-Uploading 1 records to 019527a30a0476e09695470052a2a71d/history
-  [00:00:00] [#################################################################################################################################################################################] 1/1 (0.0s)2/0 up/down to record store
-Sync complete! 3 items in history database, force: false
-```
+Credentials, SSH keys and tool state do not belong in this repository, and `.gitignore` keeps `configs/.aws/` and the private SSH keys out. Caches and history files are left alone on purpose, and these directories are deliberately not managed, so there is no need to review them again:
 
----
+- Caches and package stores: `.cache`, `.npm`, `.npm-cache`, `.pnpm-state`, `.yarn`, `.m2`, `.nuget`, `.pub-cache`, `.rustup`, `.cargo`, `.pulumi` and similar.
+- Tools that pin their directory in `$HOME`: `.dart`, `.dartServer` and `.dart-tool` come from the Dart SDK and cannot be moved ([dart-lang/sdk#49166](https://github.com/dart-lang/sdk/issues/49166)).
+- History files: `.zsh_history` and the other `.*_history` files; shell history is synced with Atuin.
 
-##### Upgrade Homebrew
+Project tools keep their state inside the project through variables in each project's `devbox.json`, such as `GRADLE_USER_HOME`, `PUB_CACHE`, `DOTNET_CLI_HOME` and `NUGET_PACKAGES`.
+
+## Atuin
+
+[Atuin](https://atuin.sh) syncs shell history across machines. Register once with `atuin register --username=<USERNAME> --email=<EMAIL>`, then use `atuin login` on every other machine.
+
+## Folder icons
 
 ```sh
-brew update
-brew upgrade
-brew doctor
+fileicon set ~/Code ~/dotfiles/icons/github.icns
 ```
 
-##### Update Software
+## Development
+
+Format and lint with Devbox, and prove the installer on a clean Mac with the VM test:
 
 ```sh
-softwareupdate --install -a
+devbox run format
+devbox run lint
+make test-vm
 ```
 
-##### Update all submodules
+## Contributing
 
-```sh
-git submodule update --remote --merge
-```
+If you have suggestions for how this setup could be improved, or
+want to report a bug, open an issue - we'd love all and any
+contributions.
 
-### Adding a submodule
+## License
 
-```sh
-git submodule add https://github.com/seebi/dircolors-solarized .dircolors
-```
+Apache License 2.0 © 2020 Mridang Agarwalla

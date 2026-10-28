@@ -3,25 +3,13 @@
 	email = mridang.agarwalla@gmail.com
 
 [core]
-	excludesfile = /Users/mridang/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = micro
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	pager = delta
+	autocrlf = input
 
 [push]
 	default = current
-
-[diff]
-	tool = icdiff
-
-[icdiff]
-	options = --highlight --line-numbers
 
 [color]
 	ui = false
@@ -61,7 +49,7 @@
 
 	insteadOf = "gist:"
 [commit]
-	template = /Users/mridang/.stCommitMsg
+	template = ~/.stCommitMsg
 [pull]
 	rebase = false
 [filter "lfs"]
@@ -71,3 +59,19 @@
 	required = true
 [init]
 	defaultBranch = master
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictstyle = zdiff3
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential

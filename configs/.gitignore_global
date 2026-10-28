@@ -3,3 +3,5 @@
 .idea
 build
 .wget-hsts
+
+**/.claude/settings.local.json
