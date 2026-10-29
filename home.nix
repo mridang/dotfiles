@@ -98,9 +98,7 @@ in {
         wget
         openssl
         stow
-        font-awesome
-        powerline-fonts
-        powerline-symbols
+        nerd-fonts.jetbrains-mono
         devbox
         installApps
       ];
