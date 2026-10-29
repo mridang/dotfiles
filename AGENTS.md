@@ -19,3 +19,4 @@ Personal macOS setup managed with Nix, Home Manager and Devbox. `home.nix` decla
 - The default branch is `master`. Branches are named `<type>/<kebab-case-description>`.
 - Commit messages are conventional commits with no trailers and no attribution, and body lines wrapped under 100 characters.
 - Apps in `apps.txt` are Homebrew cask names. Add `pkg=<url>` only where the vendor's PKG is not in Homebrew's data.
+- When you add, remove or change an app in `apps.txt`, update the Apps table in `README.md` in the same change, including what to do after installing it. When you add a tool that needs signing in, add it to "After the install" there.
