@@ -143,8 +143,6 @@ in {
         LC_ALL = "en_US.UTF-8";
         LANG = "en_US";
 
-        HOMEBREW_CASK_OPTS = "--appdir=/Applications";
-
         # Disable the Mac coloured listing so that instead of the LSCOLOURS, the commands
         # (including tree) use the LS_COLOURS variable
         # https://unix.stackexchange.com/q/2897/56262
