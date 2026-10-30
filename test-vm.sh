@@ -123,7 +123,6 @@ for t in home-manager starship atuin zoxide fzf direnv lsd bat delta micro jq fd
 done
 [ -n "$XDG_CONFIG_HOME" ] || bad "XDG_CONFIG_HOME is not set"
 starship prompt 2>/dev/null | grep -q "$(printf '\033')" || bad "the prompt has no colour codes"
-[ "$(npm config get @zitadel:registry 2>/dev/null)" = "https://registry.npmjs.org/" ] || bad "npm cannot read ~/.npmrc"
 [ -L ~/.local/share/devbox/global/default/devbox.json ] || bad "the global devbox.json is not linked"
 noise="$(zsh -l -i -c true 2>&1 </dev/null | grep -iE 'warning|error|not found' || true)"
 [ -z "$noise" ] || bad "a new shell prints: $noise"

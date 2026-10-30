@@ -77,13 +77,14 @@ gcloud auth login
 aws configure sso
 docker login
 atuin login --username=<USERNAME>
+npm login
+npm login --scope=@mridang --registry=https://npm.pkg.github.com
 ```
 
-`~/.npmrc` reads its tokens from the environment, and no token is exported
-by default. Pass the GitHub Packages token for a single command with
-`GITHUB_TOKEN=$(gh auth token) npm install`, and export `NPM_TOKEN` only when
-publishing to npmjs.org. The skills repository
-is cloned to `~/.agents/skills` the first time `make apply` runs with GitHub
+`~/.npmrc` is not managed, because `npm login` writes the tokens into it.
+The two `npm login` commands sign in to npmjs.org and to GitHub Packages
+(use a GitHub token with `read:packages` as the password). The skills
+repository is cloned to `~/.agents/skills` the first time `make apply` runs with GitHub
 access, so run it again after signing in.
 
 ## How it works

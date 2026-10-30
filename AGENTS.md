@@ -4,8 +4,8 @@ Personal macOS setup managed with Nix, Home Manager and Devbox. `home.nix` decla
 
 ## Things to know before editing
 
-- Files in `configs/` are symlinked into `$HOME` with `mkOutOfStoreSymlink`, so editing one changes the live file on the machine at once. `~/.npmrc`, `~/.gitconfig` and the rest are those files.
-- Never commit credentials, tokens or keys. `configs/.aws/` and the private SSH keys are ignored on purpose, and `.npmrc` reads its tokens from environment variables.
+- Files in `configs/` are symlinked into `$HOME` with `mkOutOfStoreSymlink`, so editing one changes the live file on the machine at once. `~/.gitconfig` and the rest are those files.
+- Never commit credentials, tokens or keys. `configs/.aws/` and the private SSH keys are ignored on purpose. `~/.npmrc` is not managed because `npm login` writes tokens into it.
 - Do not run `make apply` or `home-manager switch` on the user's machine unless asked. Check a change with `home-manager build --file home.nix` instead.
 - `install-apps.sh` has no shebang on purpose: `home.nix` wraps it with `writeShellApplication`, which adds one and runs ShellCheck at build time.
 
