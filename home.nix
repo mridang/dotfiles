@@ -208,11 +208,6 @@ in {
         shellAliases = cmdAliases;
         initContent = ''
           eval "$(devbox global shellenv)"
-
-          # ~/.npmrc reads the GitHub Packages token from this variable.
-          if command -v gh >/dev/null 2>&1; then
-            export GITHUB_TOKEN="$(gh auth token 2>/dev/null)"
-          fi
         '';
       };
     };

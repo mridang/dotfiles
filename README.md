@@ -79,9 +79,10 @@ docker login
 atuin login --username=<USERNAME>
 ```
 
-`~/.npmrc` reads the GitHub Packages token from `gh auth token` (exported
-as `GITHUB_TOKEN` by the zsh init) and the npm token from `NPM_TOKEN`, which
-you only need to export when publishing to npmjs.org. The skills repository
+`~/.npmrc` reads its tokens from the environment, and no token is exported
+by default. Pass the GitHub Packages token for a single command with
+`GITHUB_TOKEN=$(gh auth token) npm install`, and export `NPM_TOKEN` only when
+publishing to npmjs.org. The skills repository
 is cloned to `~/.agents/skills` the first time `make apply` runs with GitHub
 access, so run it again after signing in.
 
