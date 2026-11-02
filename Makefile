@@ -10,16 +10,20 @@ install-deps:
 	nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
 	nix-channel --update
 
-# home.nix installs home-manager itself, so the first run borrows it from the channel
-# instead of putting a second copy in the nix-env profile, which would conflict.
+# Previews the generation with a dry run, applies it, then installs and updates the global
+# Devbox tools. home.nix installs home-manager itself, so the first run borrows it from the
+# channel instead of putting a second copy in the nix-env profile, which would conflict.
+HM_SWITCH = home-manager switch -b backup --file $(CURDIR)/home.nix
+
 apply:
 	rm -f ~/.zshrc.zwc
 	if command -v home-manager >/dev/null 2>&1; then \
-		home-manager switch -b backup --file $(CURDIR)/home.nix; \
+		$(HM_SWITCH) -n && $(HM_SWITCH); \
 	else \
 		nix-shell -E 'with import <nixpkgs> {}; mkShell { packages = [ (import <home-manager> {}).home-manager ]; }' \
-			--run "home-manager switch -b backup --file $(CURDIR)/home.nix"; \
+			--run "$(HM_SWITCH) -n && $(HM_SWITCH)"; \
 	fi
+	$(HOME)/.nix-profile/bin/devbox global update
 
 # Install the apps in apps.txt (home.nix provides the install-apps command).
 apps:

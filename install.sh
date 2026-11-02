@@ -119,12 +119,9 @@ cd "$DOTFILES_DIR"
 say "Adding the Nix channels"
 make install-deps
 
-say "Applying the configuration"
+say "Applying the configuration and installing the global Devbox tools"
 make apply
 load_nix
-
-say "Installing the global Devbox tools"
-devbox global install
 
 say "Installing the apps"
 install-apps

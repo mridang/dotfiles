@@ -100,9 +100,10 @@ inside `configs/` is linked into `$HOME`. Devbox's global package list is
 The terminal font is JetBrains Mono Nerd Font, installed by Home Manager, so
 the icons in `lsd` and the prompt render in any terminal.
 
-Run `make apply` after changing `home.nix`, and `devbox global update` to
-update the global Devbox tools. If a new terminal is broken after applying,
-delete the compiled zsh cache with `rm ~/.zshrc.zwc`.
+Run `make apply` after changing `home.nix`. It previews the change with a
+dry run, applies it and then installs and updates the global Devbox tools, so
+the same command also keeps those tools current. If a new terminal is broken
+after applying, delete the compiled zsh cache with `rm ~/.zshrc.zwc`.
 
 ## What is not managed
 
