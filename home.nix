@@ -99,6 +99,23 @@ in {
         openssl
         stow
         nerd-fonts.jetbrains-mono
+
+        # GNU versions of tools that macOS ships as old BSD ones; the README explains each.
+        ed
+        diffutils
+        gawk
+        gnugrep
+        gnumake
+        gnused
+        gzip
+        less
+        nano
+        patch
+        rsync
+        screen
+        watch
+        which
+        ripgrep
         devbox
         installApps
       ];
