@@ -19,7 +19,7 @@
     micro = "micro -statusline off";
 
     # Show the full directory listing with tree view
-    tree = "ls --tree";
+    tree = "lsd --tree --long";
 
     # Use fzf for previewing files with bat for syntax highlighting
     preview = "fzf --preview 'bat --color \"always\" {}'";
